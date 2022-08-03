@@ -1,38 +1,38 @@
-<div class="col-md-8 offset-md-1">
-                <h2>商品一覧</h2>
+<h2>商品一覧</h2>
                 
-                    <div class="social">
-      <%= link_to new_items_path(@items), class: "btn btn-outline-secondary btn-block" do %>
-        <i class="fas fa-user-cog"></i>
+    
+      <%= link_to new_admin_item_path do %>
+        <i class="fa-thin fa-circle-plus"></i>
       <% end %>
-    </div>
-                    <table class="table table-hover table-inverse">
-                        <thead>
-                            <tr>
-                               <th></th>
-                               <th>商品ID</th>
-                               <th>商品名</th>
-                               <th>税抜価格</th>
-                               <th>ジャンル</th>
-                               <th>ステータス</th>
-                            </tr>
-                        </thead>
-                        
-                        <tbody>
-                            <% @items.each do |item| %>
-                                <tr>
-                                   <td>
-                                    <%= items.id %>
-                                   </td>
-                                   <td>
-                                      <%= link_to items_path(items) do %>
-                                        <%= items.name %>
-                                      <% end %>
-                                   </td>
-                                   <td><%= items.price %></td>
-                                   <td><%= items.genre_id %></td>
-                                </tr>
-                            <% end %>
-                        </tbody>
-                    </table>
-            </div>
+    
+    
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+     
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td>
+              <%= item.id %>
+            </td>
+            <td>
+              <%= link_to items_path(item.id) do %>
+                <%= item.name %>
+              <% end %>
+            </td>
+            <td><%= item.price %></td>
+            <td><%= item.genre.id %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+            

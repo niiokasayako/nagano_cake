@@ -1,0 +1,30 @@
+<h2>商品新規登録</h2>
+
+<%= form_with model: @Item do |f| %>
+  <div class="field">
+    <a>商品画像</a>
+      <label>
+        <%= f.file_field :image, accept: "image/*" %>
+      </label>
+  </div>
+  <div class = "field">
+    <a>商品名</a>
+          <%= f.text_field :name %>
+      </div>
+
+      <div class = "field">
+        <a>商品説明</a>
+          <%= f.text_area :introduction %>
+      </div>
+      
+      
+
+　　  <div class = "field">
+        <a>税抜価格</a>
+          <%= f.text_field :price %>円
+      </div>
+
+      <div class ="actions">
+        <p><%= f.submit '新規登録', class:"btn btn-success" %></p>
+      </div>
+    <% end %>

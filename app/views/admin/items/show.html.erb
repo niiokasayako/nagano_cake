@@ -1,0 +1,19 @@
+<h2>商品詳細画面</h2>
+<div>
+  <%= image_tag @item.get_image %>
+</div>
+
+<div>
+  <p>商品名</p>
+  <%= item.name %>
+  <p>商品説明</p>
+  <%= item.introduction %>
+  
+  <p>税込価格<br>
+  （税抜価格）</p>
+  <%= item.price * 1.1  + "(" + item.price + ") 円" %>
+  
+  <%= link_to edit_item_path(@item) do %>
+     <button type="button" class="btn btn-success">編集する</button>
+　<% end %>
+</div>
