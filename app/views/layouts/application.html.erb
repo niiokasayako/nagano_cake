@@ -5,121 +5,87 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
      <script src="https://kit.fontawesome.com/2040c8c54c.js" crossorigin="anonymous"></script>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
+
   <body class="d-flex flex-column vh-100">
     <% flash.each do |key, value| %>
     　<%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
 
-    <header class="bg-dark text-white">
-      <nav class="navbar navbar-expand-lg navbar-light">
+    <header class="border border-dark bg-white text-black">
+         <nav class="navbar navbar-expand-lg navbar-light", style= "padding:20-30">
+            
+            
+                     <div class = "col-lg-1">
+                       <h3 class="p-3 border border-dark text-black">LOGO</h3>
+                     </div>
+                     <div class="marginleft-40px ml-auto">
 
-        <div class="container">
-          <a class="navbar-brand text-light p-3" href="/">LOGO</a>
-
-          <button class="navbar-toggler-light" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav text-light ml-auto">
-           
            <!--会員がログインした場合-->
             <% if customer_signed_in? %>
-             <li class="nav-item">
-               <%= link_to  my_page_customers_path(current_public.id), class: 'nav-link text-light' do %>
+
+               <%= link_to  public_customers_my_page_path(current_public.id), class: 'btn btn-outline-secondary text-black' do %>
                マイページ
               <% end %>
-             </li>
-             
-             <li class="nav-item">
-              <%= link_to items_path, class: 'nav-link text-light' do %>
+              <%= link_to public_items_path, class: 'btn btn-outline-secondary text-black' do %>
                 商品一覧
               <% end %>
-             </li>
-
-             <li class="nav-item">
-              <%= link_to cart_items_path, class: 'nav-link text-light' do %>
+              <%= link_to public_cart_items_index_path, class: 'btn btn-outline-secondary text-black' do %>
                 カート
               <% end %>
-             </li>
-             
-             <li class="nav-item">
-              <%= link_to destroy_customers_sign_out_session_path, method: :delete, class: 'nav-link text-light' do %>
+              <%= link_to destroy_customers_sign_out_session_path, method: :delete, class: 'btn btn-outline-secondary text-black' do %>
               　ログアウト
               <% end %>
-             </li>
+
              <!--管理者がログインした場合-->
             <% elsif admin_signed_in? %>
-             <li class="nav-item">
-              <%= link_to admin_items_path, class: 'nav-link text-light' do %>
+              <%= link_to admin_items_path, class: 'btn btn-outline-secondary text-black' do %>
                 商品一覧
               <% end %>
-             </li>
-
-             <li class="nav-item">
-              <%= link_to admin_customers_path, class: 'nav-link text-light' do %>
+              <%= link_to admin_customers_path, class: 'btn btn-outline-secondary text-black' do %>
               　会員一覧
               <% end %>
-             </li>
-             
-             <li class="nav-item">
-              <%= link_to admin_path, class: 'nav-link text-light' do %>
+              <%= link_to admin_admin_path, class: 'btn btn-outline-secondary text-black' do %>
               　注文履歴一覧
               <% end %>
-             </li>
-             
-             <li class="nav-item">
-              <%= link_to admin_genres_path, class: 'nav-link text-light' do %>
+              <%= link_to admin_genres_path, class: 'btn btn-outline-secondary text-black' do %>
               　ジャンル一覧
               <% end %>
-             </li>
-             
-             <li class="nav-item">
-              <%= link_to destroy_customers_sign_out_session_path, method: :delete, class: 'nav-link text-light' do %>
+              <%= link_to destroy_admin_session_path, method: :delete, class: 'btn btn-outline-secondary text-black' do %>
               　ログアウト
               <% end %>
-              
             <% else %>
-            <li class="nav-item">
-              <%= link_to about_path, class: 'nav-link text-light' do %>
+
+              <%= link_to public_about_path, class: 'btn btn-outline-secondary text-black' do %>
                 about
               <% end %>
-             </li>
-             <li class="nav-item">
-              <%= link_to items_path, class: 'nav-link text-light' do %>
+              <%= link_to public_items_path, class: 'btn btn-outline-secondary ms-5 text-black' do %>
                 商品一覧
               <% end %>
-             </li>
-             <li class="nav-item">
-              <%= link_to sign_up_customers_registration_path, class: 'nav-link text-light' do %>
+              <%= link_to new_customer_registration_path, class: 'btn btn-outline-secondary text-black' do %>
                 新規登録
               <% end %>
-             </li>
-             <li class="nav-item">
-              <%= link_to sign_in_customers_session_path, class: 'nav-link text-light' do %>
+              <%= link_to new_customer_session_path, class: 'btn btn-outline-secondary text-black' do %>
                 ログイン
               <% end %>
-             </li>
             <% end %>
-            </ul>
-          </div>
-        </div>
-      </nav>
+            </div>
+          
+        
+</nav>
     </header>
 
-     <main class="mb-auto">
+     <main>
     <%=yield %>
     </main>
 
-    <footer class="pt-5 pb-4">
+    <footer class="pt-5 pb-4 ">
       <div class="container mt-12">
       </div>
     </footer>

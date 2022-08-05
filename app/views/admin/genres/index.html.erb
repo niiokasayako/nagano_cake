@@ -3,7 +3,7 @@
        <%= form_with model: @Genre do |f| %>
           <div class="field">
               <a>ジャンル名</a>
-                <%= f.string_field :name %>
+                <%= f.text_field :name %>
               <a>
                 <%= f.submit "新規登録" %>
               </a>

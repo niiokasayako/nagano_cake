@@ -1,27 +1,51 @@
-<h2>管理者ログイン</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class="field">
-   <a>メールアドレス</a>
-   <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <div class = "h-25"></div>
+      <div class = "row">
+        <div class = "col-lg-1"></div>
+          <h2 class = "px-4 bg-light">管理者ログイン</h2>
+      </div>
 
-  <div class="field">
-    <a>パスワード</a>
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <div class = "h-25">  </div>
+<!--ログイン画面例1-->
+        <div class="col col-md-offset-3">
+          <div class="row mb-3 col-md-offset-3">
+            <label for="admin_email" class="col-sm-2 col-form-label col-form-label-sm">メールアドレス</label>
+            <div class="col-sm-5">
+              <input type="email" class="form-control form-control-sm" id="admin_email" placeholder="sample@example.com">
+            </div>
+          </div>
+          
+          <div class="row mb-3 col-md-offset-3">
+    <label for="admin_password" class="col-sm-2 col-form-label">パスワード</label>
+    <div class="col-sm-5">
+      <input type="password" class="form-control" id="admin_password">
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
   </div>
-<% end %>
+          
+<!--ログイン画面例2-->
 
-<%= render "admin/shared/links" %>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field row mb-3">
+             <label>メールアドレス</label>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-25" %>
+            </div>
+            <div class="field row mb-3">
+              <label>パスワード</label>
+              <%= f.password_field :password, autocomplete: "current-password", class: "w-25" %>
+            </div>
+            <div class = "h-25"></div>
+
+            <div class="actions row mb-3">
+              <%= f.submit "ログイン", class: "btn btn-primary px-5"  %>
+            </div>
+          <% end %>
+
+
+          <%= render "admin/shared/links" %>
+
+</div>
+
+
+
+
