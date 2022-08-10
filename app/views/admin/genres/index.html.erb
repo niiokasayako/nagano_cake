@@ -1,6 +1,6 @@
 <div class="col-md-8 offset-md-1">  
     <h2>ジャンル一覧・追加</h2>
-       <%= form_with model: @Genre do |f| %>
+       <%= form_with model: @genre, url: '/admin/genres', method: :post do |f| %>
           <div class="field">
               <a>ジャンル名</a>
                 <%= f.text_field :name %>
@@ -19,7 +19,7 @@
                             <%= genre.name %>
                         </td>
                                   
-                        <%= link_to '編集する', edit_genre_path(@genre) %>
+                        <%= link_to '編集する', edit_admin_genre_path(genre.id) %>
                                    
                     </tr>
                 <% end %>

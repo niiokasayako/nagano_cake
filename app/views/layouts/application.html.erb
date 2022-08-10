@@ -19,13 +19,13 @@
     <% end %>
 
     <header class="border border-dark bg-white text-black">
-         <nav class="navbar navbar-expand-lg navbar-light", style= "padding:20-30">
-            
-            
-                     <div class = "col-lg-1">
-                       <h3 class="p-3 border border-dark text-black">LOGO</h3>
+         <nav class="navbar navbar-expand-lg navbar-light">
+
+
+                     <div class = "col-lg-3">
+                       <h3 class="logo">LOGO</h3>
                      </div>
-                     <div class="marginleft-40px ml-auto">
+                     <div class="col-lg-9 ms-4 ml-auto text-right">
 
            <!--会員がログインした場合-->
             <% if customer_signed_in? %>
@@ -51,7 +51,7 @@
               <%= link_to admin_customers_path, class: 'btn btn-outline-secondary text-black' do %>
               　会員一覧
               <% end %>
-              <%= link_to admin_admin_path, class: 'btn btn-outline-secondary text-black' do %>
+              <%= link_to admin_path, class: 'btn btn-outline-secondary text-black' do %>
               　注文履歴一覧
               <% end %>
               <%= link_to admin_genres_path, class: 'btn btn-outline-secondary text-black' do %>
@@ -65,6 +65,7 @@
               <%= link_to public_about_path, class: 'btn btn-outline-secondary text-black' do %>
                 about
               <% end %>
+              
               <%= link_to public_items_path, class: 'btn btn-outline-secondary ms-5 text-black' do %>
                 商品一覧
               <% end %>
@@ -76,9 +77,9 @@
               <% end %>
             <% end %>
             </div>
-          
-        
-</nav>
+
+
+          </nav>
     </header>
 
      <main>

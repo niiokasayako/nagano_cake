@@ -1,19 +1,29 @@
-<h2>商品詳細画面</h2>
-<div>
-  <%= image_tag @item.get_image %>
-</div>
+<div class="container">
+  <div class = "row" >
+    <h2>商品詳細</h2>
+  </div>
+  
+  <div class "row" >
+    <div class="col-md-3">
+      <div>
+        <%= image_tag @item.get_image %>
+      </div>
+    </div>
 
-<div>
-  <p>商品名</p>
-  <%= item.name %>
-  <p>商品説明</p>
-  <%= item.introduction %>
+    <div class="col-md-6 offset-md-1">
+      <p>商品名     <%= @item.name %></p>
+      <p>商品説明</p>
+      <%= @item.introduction %>
+      
+     <p>ジャンル</p>
+      <%= @item.genre.name %>
   
-  <p>税込価格<br>
-  （税抜価格）</p>
-  <%= item.price * 1.1  + "(" + item.price + ") 円" %>
+      <p>税込価格<br>
+      （税抜価格）</p>
+        <%= (@item.price * 1.1).floor + "(" + @item.price + ") 円" %>
   
-  <%= link_to edit_item_path(@item) do %>
-     <button type="button" class="btn btn-success">編集する</button>
-　<% end %>
+      <%= link_to edit_item_path(@item) do %>
+         <button type="button" class="btn btn-success">編集する</button>
+　    <% end %>
+　   </div>
 </div>

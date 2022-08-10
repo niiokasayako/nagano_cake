@@ -1,12 +1,18 @@
-<h2>商品一覧</h2>
-                
-    
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-1"></div>
+    <h4 class = "col-md-2 bg-light text-center my-4 ">商品一覧</h4>
+              
+    <div class = "col-md-7 text-right">
       <%= link_to new_admin_item_path do %>
-        <i class="fa-thin fa-circle-plus"></i>
+        <i class="fa-solid fa-circle-plus fa-2x my-4 pt-3"></i>
       <% end %>
-    
-    
-    <table class= "table table-striped">
+    </div>
+  </div>
+      
+  <div class = "row">
+    <div class = "col-md-1"></div>
+    <table class= "col-md-10 table table-striped ">
       <thead>
         <tr>
           <th></th>
@@ -14,7 +20,7 @@
           <th>商品名</th>
           <th>税抜価格</th>
           <th>ジャンル</th>
-          <th>ステータス</th>
+          
         </tr>
       </thead>
      
@@ -25,14 +31,18 @@
               <%= item.id %>
             </td>
             <td>
-              <%= link_to items_path(item.id) do %>
+              <%= link_to admin_item_path(item.id) do %>
                 <%= item.name %>
               <% end %>
             </td>
             <td><%= item.price %></td>
-            <td><%= item.genre.id %></td>
+            <td><%= item.genre.name %></td>
           </tr>
-        <% end %>
+          <% end %>
       </tbody>
     </table>
-            
+  </div>
+</div>
+
+
+ 

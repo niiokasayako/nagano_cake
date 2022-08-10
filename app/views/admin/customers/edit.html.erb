@@ -1,17 +1,17 @@
-<h2><%= customer.last_name + customer.first_name%>さんの会員情報編集</h2>
+<h2><%= @customer.last_name + @customer.first_name%>さんの会員情報編集</h2>
 
-<%= form_with model: @customer do |f| %>
+<%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch  do |f| %>
 
   <p>会員ID</p>
-  <%= customer.id %>
+  <%= @customer.id %>
 
 <div class = "field">
-  <a>氏名</a>
+  <p>氏名</p>
  <%= f.text_field :last_name %> <%= f.text_field :first_name %>
 </div>
 
   <div class = "field">
-    <a>フリガナ</a>
+    <p>フリガナ</p>
      <%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %>
   </div>
 
@@ -21,18 +21,24 @@
   </div>
   
   <div class = "field">
-    <a>住所</a>
+    <p>住所</p>
      <%= f.text_field :address %>
   </div>
   
   <div class = "field">
-    <a>電話番号</a>
+    <p>電話番号</p>
      <%= f.text_field :telephone_number %>
   </div>
   
   <div class = "field">
-    <a>メールアドレス</a>
+    <p>メールアドレス</p>
      <%= f.text_field :email %>
+  </div>
+  
+  <div class = "field">
+    <p>会員ステータス</p>
+
+
   </div>
 
   <div class ="actions">

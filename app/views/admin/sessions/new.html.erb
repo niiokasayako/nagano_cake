@@ -1,50 +1,43 @@
 
 
-  <div class = "h-25"></div>
-      <div class = "row">
-        <div class = "col-lg-1"></div>
           <h2 class = "px-4 bg-light">管理者ログイン</h2>
-      </div>
+   
 
-      <div class = "h-25">  </div>
-<!--ログイン画面例1-->
-        <div class="col col-md-offset-3">
-          <div class="row mb-3 col-md-offset-3">
-            <label for="admin_email" class="col-sm-2 col-form-label col-form-label-sm">メールアドレス</label>
-            <div class="col-sm-5">
-              <input type="email" class="form-control form-control-sm" id="admin_email" placeholder="sample@example.com">
-            </div>
-          </div>
-          
-          <div class="row mb-3 col-md-offset-3">
-    <label for="admin_password" class="col-sm-2 col-form-label">パスワード</label>
-    <div class="col-sm-5">
-      <input type="password" class="form-control" id="admin_password">
-    </div>
-  </div>
-          
-<!--ログイン画面例2-->
+  
 
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="field row mb-3">
-             <label>メールアドレス</label>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-25" %>
-            </div>
-            <div class="field row mb-3">
-              <label>パスワード</label>
-              <%= f.password_field :password, autocomplete: "current-password", class: "w-25" %>
-            </div>
-            <div class = "h-25"></div>
+          <table class = "mx-auto admin-log_in">
+            <thead>
+              <th></th>
+              <th></th>
+              <th></th>
+            </thead>
 
-            <div class="actions row mb-3">
-              <%= f.submit "ログイン", class: "btn btn-primary px-5"  %>
-            </div>
-          <% end %>
+            <tbody>
+              <tr>
+              <td><%= f.label :email, "メールアドレス" %></td>
+                <td></td>
+                  <td><%= f.email_field :email, autofocus: true, autocomplete: "email"%></td>
+              </tr>
+
+              <tr>
+                <td>
+                <%= f.label :password, "パスワード" %></td>
+                <td></td>
+                <td><%= f.password_field :password, autocomplete: "current-password"%></td>
+              </tr>
+
+               <tr>
+                <td></td>
+              <td><%= f.submit "ログイン", class: "btn btn-primary px-5 mt-10"  %></td>
+              </tr>
+             </tbody>
+            </table>
+            <% end %>
 
 
           <%= render "admin/shared/links" %>
 
-</div>
 
 
 

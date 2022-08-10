@@ -23,8 +23,15 @@
               <% end %>
             </td>
             <td><%= customer.email %></td>
-            <td><%= customer.is_deleted %></td>
+            <td>
+              <% if customer.is_deleted = false %>
+                <P class = "text_color-green">有効</P>
+              <% else %>
+                <P class = "text_color-#6c757d">退会</P>
+              <% end %>
+              </td>
           </tr>
         <% end %>
+        <%= paginate customer %>
       </tbody>
     </table>
