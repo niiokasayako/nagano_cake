@@ -4,35 +4,41 @@
     <h4 class = "col-md-3 bg-light text-center my-4 ">商品新規登録</h4>
   </div>
 
-<%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
- <div class="field">
-    <a>商品画像</a>
-    <label>
-      <%= f.file_field :image, accept: "image/*" %>
-    </label>
+  <div class = "row">
+    <div class = "col-md-2"></div>
+    <div class = "col-md-8">
+      <%= form_with model: @item, url: '/admin/items', method: :post do |f| %>
+        <div class="field">
+          <label class = "pr-5">商品画像</label>
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+
+        <div class = "field">
+          <label class = "pr-5">商品名</label>
+            <%= f.text_field :name %>
+        </div>
+
+        <div class = "field">
+          <label class = "pr-5">商品説明</label>
+            <%= f.text_area :introduction %>
+        </div>
+
+        <div class = "field">
+          <label class = "pr-5">税抜価格</label>
+          <%= f.text_field :price %>円
+        </div>
+
+        <div class = "field">
+          <label class = "pr-5">ジャンル</label>
+            <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
+        </div>
+
+        <div class ="actions">
+          <p><%= f.submit '新規登録', class:"btn btn-success px-5 m-3 " %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class = "col-md-2"></div>
   </div>
 
-  <div class = "field">
-    <a>商品名</a>
-    <%= f.text_field :name %>
-  </div>
-
-  <div class = "field">
-    <a>商品説明</a>
-    <%= f.text_area :introduction %>
-  </div>
-
-  <div class = "field">
-    <a>税抜価格</a>
-    <%= f.text_field :price %>円
-  </div>
-
-  <div class = "field">
-    <a>ジャンル</a>
-    <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name) %>
-  </div>
-
-  <div class ="actions  row mb-3">
-    <p><%= f.submit '新規登録', class:"btn btn-success px-5" %></p>
-  </div>
-<% end %>
+</div>

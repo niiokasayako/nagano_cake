@@ -9,7 +9,7 @@
   </ul>
 <% end %>
 
-<%= form_with model: @item do |f| %>
+<%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
 
 <div class = "field">
   <a>商品画像</a>

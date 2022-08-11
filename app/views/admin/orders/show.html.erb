@@ -5,13 +5,15 @@
   </div>
   
   <div class = "row">
-      <p>購入者</p>     <%= @customer.name %>
-      <p>注文日</p>
-      <%= @order.created_at %>
-      <p>配送先</p>
+      <p>購入者     <%= @customer.name %></p>
+      <p>注文日
+      <%= @order.created_at %></p>
+      <p>配送先
       <%= @order.postal_code %> <%= @order.address %><%= @order.name %>
-      <p>支払方法</p>
+      </p>
+      <p>支払方法
       <%= @order.payment_method %>
+      </p>
   </div>
   
   <div class = "row">

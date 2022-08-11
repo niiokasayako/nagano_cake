@@ -1,4 +1,7 @@
-<h2>注文履歴一覧</h2>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-1"></div>
+    <h4 class = "bg-light text-center my-4 ">注文履歴一覧</h4>
     
     <table class ="table table-striped">
       <thead>
@@ -14,9 +17,17 @@
         <% @orders.each do |order| %>
           <tr>
             <td>
-              <%= order.customer_id %>
+              <%= order.created_at %>
+            </td>
+            <td>
+              <%= order.customer_id.last_name %><%= order.customer_id.first_name %>
+            </td>
+            <td>
+              <%= order.order_details.amount %>
             </td>
           </tr>
         <% end %>
       </tbody>
     </table>
+</div>
+</div>

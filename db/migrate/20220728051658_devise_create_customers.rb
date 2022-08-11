@@ -31,28 +31,18 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-　
-　　  # 名前を保存するカラム
-　　  t.string :last_name, null: false
-　　  t.string :first_name, null: false
-　　  t.string :last_name_kana, null: false
-　　  t.string :first_name_kana, null: false
-　　  
-　　  # 郵便番号を保存するカラム
-　　  t.string :postal_code, null: false
-　　  
-　　  # 住所を保存するカラム
-　　  t.string :address, null: false
-　　  
-　　  # 電話番号を保存するカラム
-　　  t.string :telephone_number, null: false
-　　  
-　　  # 会員ステータス
-　　  add_column :customers, :is_deleted, :boolean, defalt: false
-
+      t.string :last_name,        null: false
+      t.string :first_name,       null: false
+      t.string :last_name_kana,   null: false
+      t.string :first_name_kana,  null: false
+      t.string :postal_code,      null: false
+      t.string :adress,           null: false
+      t.string :telephone_number, null: false
+      t.boolean :is_deleted, default: false
+      
       t.timestamps null: false
     end
-
+    
     add_index :customers, :email,                unique: true
     add_index :customers, :reset_password_token, unique: true
     # add_index :customers, :confirmation_token,   unique: true

@@ -2,42 +2,54 @@
 
 <%= form_with model: @customer, url: admin_customer_path(@customer.id), method: :patch  do |f| %>
 
-  <p>会員ID</p>
+  <p>会員ID
   <%= @customer.id %>
+  </p>
 
 <div class = "field">
-  <p>氏名</p>
- <%= f.text_field :last_name %> <%= f.text_field :first_name %>
+  <p>氏名
+   <%= f.text_field :last_name %> <%= f.text_field :first_name %>
+   </p>
 </div>
 
   <div class = "field">
-    <p>フリガナ</p>
+    <p>フリガナ
      <%= f.text_field :last_name_kana %> <%= f.text_field :first_name_kana %>
+     </p>
   </div>
 
   <div class = "field">
-    <p>郵便番号</p>
+    <p>郵便番号
       <%= f.text_field :postal_code %>
+      </p>
   </div>
   
   <div class = "field">
-    <p>住所</p>
+    <p>住所
      <%= f.text_field :address %>
+     </p>
   </div>
   
   <div class = "field">
-    <p>電話番号</p>
+    <p>電話番号
      <%= f.text_field :telephone_number %>
+     </p>
   </div>
   
   <div class = "field">
-    <p>メールアドレス</p>
+    <p>メールアドレス
      <%= f.text_field :email %>
+     </p>
   </div>
   
   <div class = "field">
-    <p>会員ステータス</p>
-
+    <p>会員ステータス
+      <%= f.radio_button :is_deleted, "false" %>
+      <%= f.label :is_deleted, "有効" %>
+      
+      <%= f.radio_button :is_deleted, "true" %>
+      <%= f.label :is_deleted, "退会" %>
+      </p>
 
   </div>
 

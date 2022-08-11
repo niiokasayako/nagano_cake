@@ -1,11 +1,19 @@
-<h1>ジャンル編集</h1>
-
+  <div class = "container">
+  <div class = "row">
+    <div class = "col-md-1"></div>
+    <h4 class = "bg-light text-center my-4 ">ジャンル編集</h4>
+    </div>
+    
+<div class = "row">
 <%= form_with model: @genre, url: admin_genre_path(@genre.id) do |f| %>
 
   <div class = "field">
-    <a>ジャンル名</a>
+    <b class ="pr-5 ">ジャンル名</b>
      <%= f.text_field :name %>
+     <span class ="pr-5"></span>
     <a><%= f.submit '変更を保存', class:"btn btn-success" %></a>
+  </div>
+  </div>
   </div>
 
 <% end %>
