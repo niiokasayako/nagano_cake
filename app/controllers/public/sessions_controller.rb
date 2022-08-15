@@ -36,5 +36,7 @@ class Public::SessionsController < Devise::SessionsController
       else 
         redirect_to public_customers_my_page_path(current_public.id)
         
+      end
     end
-end
+  end
+end 
