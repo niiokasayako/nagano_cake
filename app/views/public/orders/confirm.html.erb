@@ -1,0 +1,58 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-1"></div>
+    <h4 class = "col-md-3 bg-light text-center my-4 ">注文情報確認</h4>
+  </div>
+
+  <div class = "row">
+    <div class = "col-md-1"></div>
+    <table class="table table-bordered">
+      <thead class ="thead-light">
+        <tr>
+          <th scope="col">商品名</th>
+          <th scope="col">単価（税込）</th>
+          <th scope="col">数量</th>
+          <th scope="col">小計</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @cart_items.each do |cart_item| %>
+        <tr>
+          <td><%= cart_item.item.name %></td>
+          <td><%= cart_item.item.with_tax_price %> </td>
+          <td><%= cart_item.amount %></td>
+          <td><%= cart_item.subtotal %> </td>
+        </tr>
+        <% end %>
+      </tbody>
+     </table>
+
+     <table class="table table-bordered">
+       <% @cart_items.each do |cart_item| %>
+       <% @total += cart_item.subtotal %>
+        <tr>
+          <th class = "thead-light">送料</th>
+          <td><%= 800 %></td>
+        </tr>
+        <tr>
+          <th class = "thead-light">商品合計</th>
+          <td><%= @total %></td>
+        </tr>
+        <tr>
+          <th class = "thead-light">請求金額</th>
+          <td><%= 800 + @total %></td>
+        </tr>
+        <% end %>
+    </table>
+
+    <table>
+        <tr>
+          <th class = "font-weight-bold">支払方法</th>
+          <td><%= @order.payment_method %></td>
+        </tr>
+       <tr>
+          <th class = "font-weight-bold">お届け先</th>
+          <td></td>
+        </tr>
+    </table>
