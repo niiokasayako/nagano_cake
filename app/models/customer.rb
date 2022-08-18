@@ -8,7 +8,7 @@ class Customer < ApplicationRecord
   has_many :cart_items, dependent: :destroy
   
   def address_display
-  '〒' + postal_code + ' ' + adress + ' ' + last_name + first_name
+  '〒' + postal_code + ' ' + address + ' ' + last_name + first_name
   end
 
 end

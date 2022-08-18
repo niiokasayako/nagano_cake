@@ -25,13 +25,13 @@
            <!--会員がログインした場合-->
             <% if customer_signed_in? %>
 
-               <%= link_to  public_customers_my_page_path(current_customer.id), class: 'btn btn-outline-secondary text-black' do %>
+               <%= link_to  public_customers_my_page_path, class: 'btn btn-outline-secondary text-black' do %>
                マイページ
               <% end %>
               <%= link_to public_items_path, class: 'btn btn-outline-secondary text-black' do %>
                 商品一覧
               <% end %>
-              <%= link_to public_cart_items_index_path, class: 'btn btn-outline-secondary text-black' do %>
+              <%= link_to public_cart_items_path, class: 'btn btn-outline-secondary text-black' do %>
                 カート
               <% end %>
               <%= link_to destroy_customer_session_path, method: :delete, class: 'btn btn-outline-secondary text-black' do %>
