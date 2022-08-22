@@ -3,65 +3,67 @@
     <div class = "col-md-1"></div>
     <h4 class = "bg-light text-center my-4 ">新規会員登録</h4>
     </div>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-
-<div class = "field">
-    <label class ="pr-5 ">名前</label>
-     <%= f.label :last_name, "(姓)" %>
-     <%= f.text_field :last_name %>
-     <%= f.label :first_name, "(名)" %>
-     <%= f.text_field :first_name %>
-  </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "public/shared/error_messages", resource: resource %>
+    <table>
+      <tr>
+        <th class = "pr-5 font-weight-normal">名前</th>
+        <td>
+         <%= f.label :last_name, "(姓)" %>
+         <%= f.text_field :last_name %>
+         <%= f.label :first_name, "(名)" %>
+         <%= f.text_field :first_name %>
+        </td>
+      </tr>
+      <tr>
+        <th class = "pr-5 font-weight-normal">フリガナ</th>
+        <td>
+          <%= f.label :last_name_kana, "(セイ)" %>
+          <%= f.text_field :last_name_kana %>
+          <%= f.label :first_name_kana, "(メイ)" %>
+          <%= f.text_field :first_name_kana %>
+        </td>
+      </tr>
+      <tr>
+        <th class = "pr-5 font-weight-normal"><%= f.label :email, "メールアドレス" %></th>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </tr>
   
-  <div class = "field">
-    <label class ="pr-5 ">フリガナ</label>
-    <%= f.label :last_name_kana, "(セイ)" %>
-     <%= f.text_field :last_name_kana %>
-     <%= f.label :first_name_kana, "(メイ)" %>
-     <%= f.text_field :first_name_kana %>
-  </div>
 
-  <div class="field">
-    <%= f.label :email, "メールアドレス" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  
-   <div class = "field">
-    <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
-     <%= f.text_field :postal_code %>
-  </div>
+      <tr>
+        <th class = "pr-5 font-weight-normal"><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></th>
+        <td><%= f.text_field :postal_code %></td>
+      </tr>
+      <tr>
+        <th class = "pr-5 font-weight-normal"><%= f.label :address, "住所" %></th>
+        <td><%= f.text_field :address, class:"w-100" %></td>
+     </tr>
+     <tr>
+       <th class = "pr-5 font-weight-normal"><%= f.label :telephone_number, "電話番号(ハイフンなし)" %></th>
+       <td><%= f.telephone_field :telephone_number %></td>
+     </tr>
+    <tr>
+      <th class = "pr-5 font-weight-normal"><%= f.label :password, "パスワード（6文字以上）" %></th>
+      <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+    </tr>
 
-   <div class = "field">
-    <%= f.label :address, "住所" %>
-     <%= f.text_field :address %>
-  </div>
-  
-     <div class = "field">
-    <%= f.label :telephone_number, "電話番号(ハイフンなし)" %>
-     <%= f.telephone_field :telephone_number %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :password, "パスワード（6文字以上）" %>
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <tr>
+      <th class = "pr-5 font-weight-normal"><%= f.label :password_confirmation, "パスワード（確認用）" %></th>
+      <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td><%= f.submit "新規登録", class: "btn btn-success w-50" %></td>
+    </tr>
+  </table>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "パスワード（確認用）" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "新規登録", class: "btn btn-success" %>
-  </div>
-<% end %>
-
-
-<div class = "row">
+  <div class = "row">
     <div class = "col-md-1"></div>
     <h4 class = "bg-light text-center my-4 ">既に登録済みの方</h4>
-    </div>
+  </div>
+  <div class = "row">
+    <div class = "col-md-2"></div>
     <a href="/customers/sign_in">こちら</a>からログインしてください。
+  </div>
 </div>

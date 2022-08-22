@@ -24,19 +24,19 @@ Rails.application.routes.draw do
     patch 'customers/withdraw'
     delete 'cart_items/destroy_all'
     resources :cart_items, only: [:create, :index, :update, :destroy]
-    resources :orders, only: [:new, :create, :index, :show]
     post 'orders/confirm'
     get 'orders/complete'
+    resources :orders, only: [:new, :create, :index, :show]
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
-
 
   namespace :admin do
     get '/' => "homes#top", as: "/"
     resources :genres, only: [:new, :index, :create, :edit, :update]
     resources :items, only: [:new, :index, :create, :show, :edit, :update]
     resources :customers, only: [:index, :show, :edit, :update]
-    get 'orders/show'
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,2 +1,70 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-1"></div>
+    <h4 class = "col-md-3 bg-light text-center my-4 ">注文履歴詳細</h4>
+  </div>
+  
+  <div class = "row">
+    <div class = "col-md-7">
+      <h5 class ="font-weight-bold">注文情報</h5>
+        <table class="table table-bordered">
+          <tr>
+            <th class = "thead-light font-weight-normal">注文日</th>
+            <td><%= @order_detail.order.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <th class = "thead-light font-weight-normal">配送先</th>
+            <td><p><%= @order_detail.order.postal_code %></p><p><%= @order_detail.order.address %></p><p><%= @order_detail.order.name %></p></td>         </tr>
+          <tr>
+            <th class = "thead-light font-weight-normal">支払方法</th>
+            <td><%= @order_detail.order.payment_method_i18n %></td>
+          </tr>
+        </table>
+    </div>
+    
+    <div class = "col-md-5">
+      <h5 class ="font-weight-bold">請求情報</h5>
+      <table class="table table-bordered">
+        <tr>
+          <th class = "thead-light font-weight-normal">商品合計</th>
+          <td><%= (@order_detail.order.total_payment.to_i - 800).to_s(:delimited) %></td>
+        </tr>
+        <tr>
+          <th class = "thead-light font-weight-normal">配送料</th>
+          <td><%= @order_detail.order.shipping_cost %></td>
+        </tr>
+        <tr>
+          <th class = "thead-light font-weight-bold">ご請求額</th>
+          <td><%= @order_detail.order.total_payment.to_s(:delimited) %></td>
+        </tr>
+      </table> 
+    </div>
+  </div>
+  
+  <div class = "row">
+    <div class = "col-md-10">
+    <h5 class ="font-weight-bold">注文情報</h5>
+      <table class="table table-bordered">
+        <thead class ="thead-light">
+          <tr>
+            <th class="col-md-5">商品</th>
+            <th class="col-md-2">単価（税込）</th>
+            <th class="col-md-1">個数</th>
+            <th class="col-md-1">小計</th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @order_details.each do |order_detail| %>
+          <tr>
+            <td><%= order_detail.item.name %></td>
+            <td><%= (order_detail.item.price * 1.1).floor %> </td>
+            <td><%= order_detail.amount %></td>
+            <td><%= order_detail.item.with_tax_price * order_detail.amount %> </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

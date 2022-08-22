@@ -1,3 +1,5 @@
+<div class = "container">
+  <div class = "row-12 text-md-block text-center m-4">
       <div class="main-visual text-md-block">
         <%= image_tag 'cake-shop.png', class: "h-25 w-25" %>
         <p class="main-visual-text">
@@ -7,34 +9,40 @@
           購入には会員登録が必要になります。
         </p>
       </div>
+  </div>
     
-  <h3>新着商品</h3>
+  <div class = "row- m-4">
+  <h3 class = "font-weight-bold">新着商品</h3>
     <div class= "row">
-      <div class = "col-2">
+      <div class = "col-3">
       <p><%= image_tag 'no_image2.png', class: "h-25 w-50" %></p>
       <P>商品名</P>
       <P>￥0,000</P>
       </div>
       
-      <div class = "col-2">
+      <div class = "col-3">
       <p><%= image_tag 'no_image2.png', class: "h-25 w-50" %></p>
       <P>商品名</P>
       <P>￥0,000</P>
       </div>
       
-            <div class = "col-2">
+            <div class = "col-3">
       <p><%= image_tag 'no_image2.png', class: "h-25 w-50" %></p>
       <P>商品名</P>
       <P>￥0,000</P>
       </div>
       
-      <div class = "col-2">
+      <div class = "col-3">
       <p><%= image_tag 'no_image2.png', class: "h-25 w-50" %></p>
       <P>商品名</P>
       <P>￥0,000</P>
       </div>
     </div>
-    
+  
+
     <div class="col-lg-12 ml-auto text-right">
     <%= link_to "全ての商品を見る > ", public_items_path %>
+    
+    </div>
+    </div>
     </div>
