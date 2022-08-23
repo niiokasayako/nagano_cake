@@ -1,36 +1,31 @@
- <h2 class = "px-4 bg-light">管理者ログイン</h2>
-   
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-1"></div>
+    <h4 class = "bg-light text-center w-25 my-4 ">管理者ログイン</h4>
+  </div>
+<div class = "row">
+  <div class = "col-md-2"></div>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <table class = "mx-auto admin-log_in">
-            <thead>
-              <th></th>
-              <th></th>
-              <th></th>
-            </thead>
-
-            <tbody>
+          <table>
               <tr>
-              <td><%= f.label :email, "メールアドレス" %></td>
-                <td></td>
-                  <td><%= f.email_field :email, autofocus: true, autocomplete: "email"%></td>
+              <th class = "font-weight-normal pr-5"><%= f.label :email, "メールアドレス" %></th>
+                  <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
               </tr>
 
               <tr>
-                <td>
-                <%= f.label :password, "パスワード" %></td>
-                <td></td>
-                <td><%= f.password_field :password, autocomplete: "current-password"%></td>
+                <th class = "font-weight-normal pr-5">
+                <%= f.label :password, "パスワード" %></th>
+                <td><%= f.password_field :password, autocomplete: "current-password" %></td>
               </tr>
 
                <tr>
-                <td></td>
-              <td><%= f.submit "ログイン", class: "btn btn-primary px-5 mt-10"  %></td>
+                <th class = "font-weight-normal pr-5"></th>
+              <td><%= f.submit "ログイン", class: "btn btn-primary px-5 my-4"  %></td>
               </tr>
-             </tbody>
             </table>
             <% end %>
-
-
+</div>
+</div>
           <%= render "admin/shared/links" %>
 
 

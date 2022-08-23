@@ -1,19 +1,18 @@
 <div class = "container">
-  <div class = "row-12 m-4">
+  <div class = "row m-4">
  <h3><b>商品一覧</b>(全 <%= @items.count %> 件)</h3>
  </div>
-    <div class= "row">
-      <div class = "col-3">
+    <div class = "row d-flex mt-2">
+
        <% @items.each do |item| %>
-       
-       <p><%= image_tag item.get_image(100,70) %></p>
-         <p><%= link_to public_item_path(item.id) do %>
+      <div class = "col-md-3">
+       <p><%= image_tag item.get_image(100,70) %><br>
+         <%= link_to public_item_path(item.id) do %>
                 <%= item.name %>
-              <% end %></p>
-            </p>￥<%= (item.price * 1.1).floor.to_s(:delimited) %></p>
+              <% end %><br>
+            ￥<%= (item.price * 1.1).floor.to_s(:delimited) %></p>
+              </div>
           <% end %>
       </div>
-    </div>
-    
-    </div>
+    <%= paginate @items %>
     </div>

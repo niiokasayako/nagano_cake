@@ -1,31 +1,38 @@
-<div class="container">
-  <div class = "row" >
-    <h2>商品詳細</h2>
-  </div>
-</div>
-  
 <div class = "container">
+  <div class = "row">
+    <div class = "col-md-1"></div>
+      <h4 class = "col-md-3 bg-light text-center my-4 mb-5 ">商品詳細</h4>
+  </div>
+  
   <div class "row" >
     <div class="col-md-2">
-      <div>
         <%= image_tag @item.get_image(100,70) %>
-      </div>
     </div>
 
-    <div class="col-md-7 offset-md-1">
-      <p class = "mr-2"></p>商品名<%= @item.name %>
-      <p>商品説明
-      <%= @item.introduction %></p>
+    <table class="col-md-7">
+      <tr>
+        <th class = "font-weight-normal pr-5">商品名</th>
+        <td><%= @item.name %></td>
+      </tr>
+      <tr>
+        <th class = "font-weight-normal pr-5">商品説明</th>
+        <td><%= @item.introduction %></td>
+      </tr>
+      <tr>
+        <th class = "font-weight-normal pr-5">ジャンル</th>
+        <td><%= @item.genre.name %></td>
+      </tr>
+      <tr>
+        <th class = "font-weight-normal pr-5">税込価格<br>
+      （税抜価格</th>
+        <td><%= (@item.price * 1.1).floor.to_s(:delimited) %> ( <%= @item.price.to_s(:delimited) %>) 円</td>
+      </tr>
+    </table>
       
-     <p>ジャンル
-      <%= @item.genre.name %></p>
-  
-      <p>税込価格<br>
-      （税抜価格）
-        <%= (@item.price * 1.1).floor %> ( <%= @item.price %>) 円</p>
-  
-      <%= link_to edit_admin_item_path(@item) do %>
-         <button type="button" class="btn btn-success text-md-block">編集する</button>
-　    <% end %>
+      <div class = "col-md-5 text-md-block text-center">
+        <%= link_to edit_admin_item_path(@item) do %>
+           <button type="button" class="btn btn-success text-md-block px-4 m-3">編集する</button>
+  　    <% end %>
 　   </div>
+  </div>
 </div>

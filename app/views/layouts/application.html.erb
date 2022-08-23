@@ -27,49 +27,49 @@
             <ul class="navbar-nav ml-auto">
            <!--会員がログインした場合-->
               <% if customer_signed_in? %>
-                <li class = "ml-md-4"> 
+                <li class = "ml-md-4">
                   <%= link_to  public_customers_my_page_path, class: 'btn btn-outline-secondary text-black' do %>
                     マイページ
                   <% end %>
                 </li>
-                <li class = "ml-md-4"> 
+                <li class = "ml-md-4">
                   <%= link_to public_items_path, class: 'btn btn-outline-secondary text-black' do %>
                     商品一覧
                   <% end %>
                 </li>
-                <li class = "ml-md-4"> 
+                <li class = "ml-md-4">
                   <%= link_to public_cart_items_path, class: 'btn btn-outline-secondary text-black' do %>
                     カート
                   <% end %>
                 </li>
-                <li class = "ml-md-4"> 
+                <li class = "ml-md-4">
                   <%= link_to destroy_customer_session_path, method: :delete, class: 'btn btn-outline-secondary text-black' do %>
                   　ログアウト
                   <% end %>
                 </li>
                  <!--管理者がログインした場合-->
                 <% elsif admin_signed_in? %>
-                <li class = "ml-md-4"> 
-                  <%= link_to admin_items_path, class: 'btn btn-outline-secondary align-middle' do %>
+                <li class = "ml-md-4">
+                  <%= link_to admin_items_path, class: 'btn btn-outline-secondary' do %>
                     商品一覧
                   <% end %>
                 </li>
-                <li class = "ml-md-4"> 
-                  <%= link_to admin_customers_path, class: 'btn btn-outline-secondary text-lg-block' do %>
+                <li class = "ml-md-4">
+                  <%= link_to admin_customers_path, class: 'btn btn-outline-secondary' do %>
                   　会員一覧
                   <% end %>
                 </li>
-                <li class = "ml-md-4"> 
+                <li class = "ml-md-4">
                   <%= link_to admin_path, class: 'btn btn-outline-secondary text-black' do %>
                   　注文履歴一覧
                   <% end %>
                 </li>
-                <li class = "ml-md-4"> 
+                <li class = "ml-md-4">
                   <%= link_to admin_genres_path, class: 'btn btn-outline-secondary text-black' do %>
                   　ジャンル一覧
                   <% end %>
                 </li>
-                <li class = "ml-md-4"> 
+                <li class = "ml-md-4">
                   <%= link_to destroy_admin_session_path, method: :delete, class: 'btn btn-outline-secondary text-black' do %>
                   　ログアウト
                   <% end %>
@@ -80,17 +80,17 @@
                     About
                   <% end %>
                 </li>
-                <li class = "ml-md-4">        
+                <li class = "ml-md-4">
                   <%= link_to public_items_path, class: 'btn btn-outline-secondary ms-5 text-black' do %>
                     商品一覧
                   <% end %>
                 </li>
-                <li class = "ml-md-4"> 
+                <li class = "ml-md-4">
                   <%= link_to new_customer_registration_path, class: 'btn btn-outline-secondary text-black' do %>
                     新規登録
                   <% end %>
                 </li>
-                <li class = "ml-md-4"> 
+                <li class = "ml-md-4">
                   <%= link_to new_customer_session_path, class: 'btn btn-outline-secondary text-black' do %>
                     ログイン
                   <% end %>

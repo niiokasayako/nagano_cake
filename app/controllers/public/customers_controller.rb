@@ -6,9 +6,9 @@ class Public::CustomersController < ApplicationController
   def edit
     @customer = Customer.find(current_customer.id)
   end
-  
+
   def update
-    @customer = Customer.find(current_customer.id)  
+    @customer = Customer.find(current_customer.id)
    if  @customer.update(customer_params)
     redirect_to public_customers_my_page_path(@customer)
    else
@@ -19,15 +19,15 @@ class Public::CustomersController < ApplicationController
   def unsubscribe
      @customer = Customer.find(current_customer.id)
   end
-  
+
   def withdraw
     @customer = Customer.find(current_customer.id)
-    @customer.update
-    redirect_to public_root_path(@customer)
+    @customer.update(is_deleted: true)
+    sign_out_and_redirect(current_customer)
   end
-  
+
   def customer_params
     params.require(:customer).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number)
   end
-  
+
 end

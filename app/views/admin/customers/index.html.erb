@@ -1,11 +1,11 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-md-1"></div>
-    <h4 class = "bg-light text-center my-4 ">会員一覧</h4>
+    <h4 class = "bg-light text-center w-25 my-4 ">会員一覧</h4>
     </div>
-    
-    <table class ="table table-striped">
-      <thead>
+
+    <table class ="table border-bottom ">
+      <thead class = "table-active">
         <tr>
           <th>会員ID</th>
           <th>氏名</th>
@@ -13,7 +13,7 @@
           <th>ステータス</th>
         </tr>
       </thead>
-     
+
       <tbody>
         <% @customers.each do |customer| %>
           <tr>
@@ -27,7 +27,7 @@
             </td>
             <td><%= customer.email %></td>
             <td>
-              <% if customer.is_deleted = false %>
+              <% if customer.is_deleted == false %>
                 <P class = "text_color-green">有効</P>
               <% else %>
                 <P class = "text_color-#6c757d">退会</P>

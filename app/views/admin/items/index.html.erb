@@ -1,29 +1,27 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-md-1"></div>
-    <h4 class = "col-md-2 bg-light text-center my-4 ">商品一覧</h4>
-              
+    <h4 class = "bg-light text-center w-25 my-4 ">商品一覧</h4>
+
     <div class = "col-md-7 text-right">
       <%= link_to new_admin_item_path do %>
         <i class="fa-solid fa-circle-plus fa-2x my-4 pt-3"></i>
       <% end %>
     </div>
   </div>
-      
+
   <div class = "row">
     <div class = "col-md-1"></div>
-    <table class= "col-md-10 table table-striped ">
-      <thead>
+    <table class= "col-md-10 table border-bottom">
+      <thead class = "table-active">
         <tr>
-          
           <th>商品ID</th>
           <th>商品名</th>
           <th>税抜価格</th>
           <th>ジャンル</th>
-          
         </tr>
       </thead>
-     
+
       <tbody>
         <% @items.each do |item| %>
           <tr>
@@ -35,14 +33,14 @@
                 <%= item.name %>
               <% end %>
             </td>
-            <td><%= item.price %></td>
+            <td><%= item.price.to_s(:delimited) %></td>
             <td><%= item.genre.name %></td>
           </tr>
-          <% end %>
+        <% end %>
       </tbody>
     </table>
+    
   </div>
 </div>
 
-
- 
+<%= paginate @items %>

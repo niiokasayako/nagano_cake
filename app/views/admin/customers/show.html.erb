@@ -36,7 +36,7 @@
         </tr>
         <tr>
           <th>会員ステータス</th>
-          <td><% if @customer.is_deleted = false %>
+          <td><% if @customer.is_deleted == false %>
       <P class = "text_color-green">有効</P>
     <% else %>
       <P class = "text_color-#6c757d">退会</P>
