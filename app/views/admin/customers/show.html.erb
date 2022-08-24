@@ -1,53 +1,54 @@
 <div class = "container">
   <div class = "row">
-    <div class = "col-md-1"></div>
     <h4 class = "col-md-4 bg-light text-center my-4 "><%= @customer.last_name + @customer.first_name %>さんの会員詳細</h4>
   </div>
   
   <div class = "row">
     <table>
         <tr>
-          <th>会員ID</th>
+          <th class = "font-weight-normal pt-3 pr-5">会員ID</th>
           <td><%= @customer.id %></td>
-          </tr>
-          <tr>
-          <th>氏名</th>
+        </tr>
+        <tr>
+          <th class = "font-weight-normal pt-3 pr-5">氏名</th>
           <td><%= @customer.last_name %> <%= @customer.first_name %></td>
-          </tr>
-          <tr>
-          <th>フリガナ</th>
+        </tr>
+        <tr>
+          <th class = "font-weight-normal pt-3 pr-5">フリガナ</th>
           <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
-          </tr>
-          <tr>
-          <th>郵便番号</th>
+        </tr>
+        <tr>
+          <th class = "font-weight-normal pt-3 pr-5">郵便番号</th>
           <td><%= @customer.postal_code %></td>
-          </tr>
-          <tr>
-          <th>住所</th>
+        </tr>
+        <tr>
+          <th class = "font-weight-normal pt-3 pr-5">住所</th>
           <td><%= @customer.address %></td>
-          </tr>
-          <tr>
-          <th>電話番号</th>
+        </tr>
+        <tr>
+          <th class = "font-weight-normal pt-3 pr-5">電話番号</th>
           <td><%= @customer.telephone_number %></td>
-          </tr>
-          <tr>
-          <th>メールアドレス</th>
+        </tr>          <tr>
+          <th class = "font-weight-normal pt-3 pr-5">メールアドレス</th>
           <td><%= @customer.email %></td>
         </tr>
         <tr>
-          <th>会員ステータス</th>
-          <td><% if @customer.is_deleted == false %>
-      <P class = "text_color-green">有効</P>
-    <% else %>
-      <P class = "text_color-#6c757d">退会</P>
-    <% end %></td>
+          <th class = "font-weight-normal pr-5">会員ステータス</th>
+          <td class = "pt-2"><% if @customer.is_deleted == false %>
+                <P class = "font-weight-bold text-success">有効</P>
+              <% else %>
+                <P class = "font-weight-bold text-secondary">退会</P>
+              <% end %>
+          </td>
         </tr>
     </table>
   </div>
-
-  <%= link_to edit_admin_customer_path(@customer.id) do %>
-     <button type="button" class="btn btn-success">編集する</button>
-　<% end %>
-　
-　
+  <div class = "row">
+    <div class = "col-md-2"></div>
+    <div class = "col-md-3">
+      <%= link_to edit_admin_customer_path(@customer.id) do %>
+         <button type="button" class="btn btn-success">編集する</button>
+      <% end %>
+    </div>
+　</div>
 </div>

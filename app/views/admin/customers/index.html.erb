@@ -1,7 +1,7 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-md-1"></div>
-    <h4 class = "bg-light text-center w-25 my-4 ">会員一覧</h4>
+    <h4 class = "bg-light text-center px-4 my-4 ">会員一覧</h4>
     </div>
 
     <table class ="table border-bottom ">
@@ -28,9 +28,9 @@
             <td><%= customer.email %></td>
             <td>
               <% if customer.is_deleted == false %>
-                <P class = "text_color-green">有効</P>
+                <P class = "font-weight-bold text-success">有効</P>
               <% else %>
-                <P class = "text_color-#6c757d">退会</P>
+                <P class = "font-weight-bold text-secondary">退会</P>
               <% end %>
               </td>
           </tr>

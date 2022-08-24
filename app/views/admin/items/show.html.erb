@@ -1,7 +1,7 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-md-1"></div>
-      <h4 class = "col-md-3 bg-light text-center my-4 mb-5 ">商品詳細</h4>
+      <h4 class = "bg-light text-center px-4 my-4 mb-5 ">商品詳細</h4>
   </div>
   
   <div class "row" >
@@ -15,7 +15,7 @@
         <td><%= @item.name %></td>
       </tr>
       <tr>
-        <th class = "font-weight-normal pr-5">商品説明</th>
+        <th class = "font-weight-normal align-top pr-5">商品説明</th>
         <td><%= @item.introduction %></td>
       </tr>
       <tr>
@@ -24,7 +24,7 @@
       </tr>
       <tr>
         <th class = "font-weight-normal pr-5">税込価格<br>
-      （税抜価格</th>
+      （税抜価格)</th>
         <td><%= (@item.price * 1.1).floor.to_s(:delimited) %> ( <%= @item.price.to_s(:delimited) %>) 円</td>
       </tr>
     </table>

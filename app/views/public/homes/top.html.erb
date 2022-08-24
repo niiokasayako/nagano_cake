@@ -13,30 +13,19 @@
     
   <div class = "row- m-4">
   <h3 class = "font-weight-bold">新着商品</h3>
-    <div class= "row">
-      <div class = "col-3">
-      <p><%= image_tag 'no_image2.png', class: "h-25 w-50" %></p>
-      <P>商品名</P>
-      <P>￥0,000</P>
-      </div>
+        <div class = "row d-flex mt-2">
+        <% @items.each do |item| %>
+            <div class = "col-md-3">
+                <p><%= link_to public_item_path(item.id) do %>
+                        <%= image_tag item.get_image(100,70) %><br>
+                        <%= item.name %><br>
+                        ￥<%= (item.price * 1.1).floor.to_s(:delimited) %>
+                    <% end %>
+                </p>
+            </div>
+            <% end %>
+    </div>
       
-      <div class = "col-3">
-      <p><%= image_tag 'no_image2.png', class: "h-25 w-50" %></p>
-      <P>商品名</P>
-      <P>￥0,000</P>
-      </div>
-      
-            <div class = "col-3">
-      <p><%= image_tag 'no_image2.png', class: "h-25 w-50" %></p>
-      <P>商品名</P>
-      <P>￥0,000</P>
-      </div>
-      
-      <div class = "col-3">
-      <p><%= image_tag 'no_image2.png', class: "h-25 w-50" %></p>
-      <P>商品名</P>
-      <P>￥0,000</P>
-      </div>
     </div>
   
 

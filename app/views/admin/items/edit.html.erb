@@ -1,39 +1,50 @@
-<h2>商品編集</h2>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-1"></div>
+    <h4 class = "bg-light text-center px-4 my-4 ">商品編集</h4>
+  </div>
 
-<% if @item.errors.any? %>
-  <%= @item.errors.count %>errors prohibited this item from being saved:
-  <ul>
-    <% @item.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+    <% if @item.errors.any? %>
+      <%= @item.errors.count %>errors prohibited this item from being saved:
+      <ul>
+        <% @item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
 
-<%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
+  <div class = "row">
+    <div class = "col-md-2"></div>
+    <%= form_with model: @item, url: admin_item_path(@item.id) do |f| %>
 
-<div class = "field">
-  <a>商品画像</a>
- <%= f.file_field :image, accept: "image/*" %>
+      <table>
+        <tr>
+          <th class = "font-weight-normal pr-5">商品画像</th>
+          <td><%= f.file_field :image, accept: "image/*" %></td>
+        </tr>
+        <tr>
+          <th class = "font-weight-normal pr-5">商品名</th>
+          <td><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+          <th class = "font-weight-normal align-top pr-5">商品説明</th>
+          <td><%= f.text_area :introduction %></td>
+        </tr>
+        <tr>
+          <th class = "font-weight-normal pr-5">ジャンル</th>
+          <td><%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name)%></td>
+        </tr>
+        <tr>
+          <th class = "font-weight-normal pr-5">税抜価格</th>
+          <td><%= f.text_field :price %>円</td>
+        </tr>
+      </table>
+  </div>
+  <div class = "row mt-4">
+    <div class = "col-md-3"></div>
+    <div class = "col-md-3">
+      <a><%= f.submit '変更を保存', class:"btn btn-success px-4" %></a>
+    </div>
+  <% end %>
+  </div>
 </div>
-
-  <div class = "field">
-    <a>商品名</a>
-     <%= f.text_field :name %>
-  </div>
-
-  <div class = "field">
-    <p>商品説明</p>
-      <%= f.text_area :introduction %>
-  </div>
-  
-  <div class = "field">
-    <a>税抜価格</a>
-     <%= f.text_field :price %>円
-  </div>
-
-  <div class ="actions">
-    <%= f.submit '変更を保存' %>
-  </div>
-
-<% end %>
-

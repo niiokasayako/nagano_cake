@@ -1,7 +1,7 @@
-  <div class = "container">
+<div class = "container">
   <div class = "row">
     <div class = "col-md-1"></div>
-    <h4 class = "bg-light text-center my-4 ">新規会員登録</h4>
+    <h4 class = "bg-light text-center w-25 my-4  ">新規会員登録</h4>
     </div>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "public/shared/error_messages", resource: resource %>
@@ -28,7 +28,7 @@
         <th class = "pr-5 font-weight-normal"><%= f.label :email, "メールアドレス" %></th>
         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
       </tr>
-  
+
 
       <tr>
         <th class = "pr-5 font-weight-normal"><%= f.label :postal_code, "郵便番号(ハイフンなし)" %></th>
@@ -53,7 +53,7 @@
     </tr>
     <tr>
       <th></th>
-      <td><%= f.submit "新規登録", class: "btn btn-success w-50" %></td>
+      <td><%= f.submit "新規登録", class: "btn btn-success mt-4 w-50" %></td>
     </tr>
   </table>
   <% end %>
@@ -62,7 +62,7 @@
     <div class = "col-md-1"></div>
     <h4 class = "bg-light text-center my-4 ">既に登録済みの方</h4>
   </div>
-  <div class = "row">
+  <div class = "row mb-5">
     <div class = "col-md-2"></div>
     <a href="/customers/sign_in">こちら</a>からログインしてください。
   </div>

@@ -1,6 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
+.main{
+  width: 960px;
+  height: 650px;
+  margin: 50px auto;
+}
+
 .logo {
   width: 150px;
   height: 40px;

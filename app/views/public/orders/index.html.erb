@@ -1,7 +1,7 @@
 <div class = "container">
   <div class = "row">
     <div class = "col-md-1"></div>
-    <h4 class = "col-md-3 bg-light text-center my-4 ">注文履歴一覧</h4>
+    <h4 class = "bg-light text-center px-4 my-4 ">注文履歴一覧</h4>
   </div>
 
   <div class = "row">
@@ -20,9 +20,9 @@
         <% @orders.each do |order| %>
           <tr>
             <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-            <td><p><%= order.postal_code %></p><p><%= order.address %></p><p><%= order.name %></p></td>
+            <td>〒<%= order.postal_code %><br><%= order.address %><br><%= order.name %></td>
             <td><% order.order_details.each do |order_detail| %>
-                  <%= order_detail.item.name %>
+                  <%= order_detail.item.name %><br>
                   <% end %>
             </td>
             <td><%= order.total_payment.to_s(:delimited) %>円</td>
